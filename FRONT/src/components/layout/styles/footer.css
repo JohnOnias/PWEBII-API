@@ -1,0 +1,16 @@
+.footer-game p {
+    color: #fcfcfc;
+    font-size: 12px;
+    margin: 10px 0;
+    letter-spacing: 1px;
+}
+
+.footer-game{
+
+    height: 5vh;
+    width: 100vw;
+    background-color: #2b2f3e80;
+    position: relative;
+    text-align: center;
+
+}
