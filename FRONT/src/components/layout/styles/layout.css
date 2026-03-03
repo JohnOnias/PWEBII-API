@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Bungee', cursive;
-    background: url('../../../assets/wallpaper.jpeg') no-repeat center center fixed;
+    background: url('../../../assets/wallpaper.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     display: flex;

@@ -3,51 +3,49 @@ import "./styles/style.css";
 
 
 
-function Quiz(){
+export default function Classico(){
 
-  const [userInput, setUserInput] = useState("");
   const [feedback, setFeedback] = useState("");
-
-
+  const [formulario, setFormulario] = useState(""); 
 
   const [currentCard, setCurrentCard] = useState({
-    image: "https://link-da-imagem-da-carta.png",
+    image: "",
     name: "",
   });
 
 
+
+
+
   const handleCheck = () => {
-    if (userInput.trim() === "") {
+    
+    if (formulario.trim() === "") {
       setFeedback("Por favor, digite um nome!");
       return;
     }
-    
 
-    // Aqui você implementará a lógica de verificação
-    setFeedback(`Você digitou: ${userInput}`);
+
+    // por a logica de comparação com a carta alvo    
+    setFeedback(`Você digitou: ${formulario}`);
   };
 
 
-  // Função para lidar com a tecla Enter
+
+  
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
       handleCheck();
     }
   };
 
-  // Funções para os botões do footer
-  const handleClose = () => {
-    console.log("Fechar");
-  };
 
 
-  const handleInfo = () => {
-    console.log("Informações");
-  };
+
 
 
   const handleRestart = () => {
-    setUserInput("");
+
+    setFormulario("");
     setFeedback("");
     console.log("Reiniciar jogo");
   };
@@ -55,7 +53,7 @@ function Quiz(){
 
   return (
 
-    <div className="game-container">
+    <div className="quiz-container">
 
 
 
@@ -70,15 +68,17 @@ function Quiz(){
         </div>
 
 
+
         <div className="card-display">
           <img src={currentCard.image} alt="Carta" className="mystery-card" />
         </div>
 
+
         <div className="input-area">
           <input
             type="text"
-            value={userInput}
-            onChange={(e) => setUserInput(e.target.value)}
+            value={formulario}
+            onChange={(e) => setFormulario(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Escreva o nome do personagem..."
             autoComplete="off"
@@ -102,4 +102,4 @@ function Quiz(){
   );
 };
 
-export default Quiz;
+

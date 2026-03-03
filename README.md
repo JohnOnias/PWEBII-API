@@ -28,3 +28,20 @@ Equipe: John E. Onias e Eric Reullyson
 
 
 
+dependencias:
+
+back = node, express, axios, dotenv cors
+instalando:
+     npm init -y 
+     npm install express axios dotenv cors
+
+
+front = react(vite), axios, react-dom-router
+
+
+
+
+ ----- rodando o projeto ------
+
+na pasta raiz back, rode: node server.js
+em outro terminal na pasta raiz front, rode: npm run dev
