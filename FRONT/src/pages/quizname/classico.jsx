@@ -44,8 +44,8 @@ export default function Classico({cartas}){
     function verificarResposta() {
       if (!cartaAtual || feedback) return;
   
-      const nomecorreto = cartaAtual.name;
-      const acertou = resposta === nomecorreto;
+      const nomecorreto = cartaAtual.name.toLowerCase();
+      const acertou = resposta.toLowerCase() === nomecorreto;
   
       console.log("Resposta do usuário:", resposta);
       console.log("Nome correto:", nomecorreto);
