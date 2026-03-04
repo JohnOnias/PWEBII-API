@@ -52,10 +52,10 @@ export default function Classico({cartas}){
 
       if (acertou) {
         setScore((prev) => prev + 1);
-        setFeedback("Acertou!");
+        setFeedback("Correct!");
       } else {
         setScore((prev) => Math.max(prev - 1, 0));
-        setFeedback(`você errou! O nome correto era: ${nomecorreto}`);
+        setFeedback(`You got it wrong! The correct name was: ${nomecorreto}`);
       }
   
       setResposta("");
@@ -85,7 +85,7 @@ export default function Classico({cartas}){
 
       <div className="quiz-card">
         <div className="quiz-header">
-          <h2>QUAL É A CARTA?</h2>
+          <h2>WHAT IS THE CARD?</h2>
         </div>
 
 
@@ -101,7 +101,7 @@ export default function Classico({cartas}){
             value={resposta}
             onChange={(e) => setResposta(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Escreva o nome do personagem..."
+            placeholder="Write the character's name..."
             autoComplete="off"
           />
           <button id="btnCheck" onClick={handleCheck}>
