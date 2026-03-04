@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import "./style/elixir.css";
+import trofeu from "../../../src/assets/trofeu.png";
+
+import enviar from "../../assets/respond.png";
 
 export default function Elixir({ cartas }) {
   const [cartaAtual, setCartaAtual] = useState(null);
@@ -35,10 +39,10 @@ export default function Elixir({ cartas }) {
 
     if (acertou) {
       setScore((prev) => prev + 1);
-      setFeedback("Acertou!");
+      setFeedback("Correct!");
     } else {
       setScore((prev) => Math.max(prev - 1, 0));
-      setFeedback(`Que pena, você errou! O custo era ${custoCorreto}`);
+      setFeedback(`Too bad, you missed it! The cost was ${custoCorreto}`);
     }
 
     setResposta("");
@@ -52,25 +56,30 @@ export default function Elixir({ cartas }) {
   }
 
   if (!cartas || cartas.length === 0) {
-    return <h2>Carregando cartas...</h2>;
+    return <h2>Loading cards...</h2>;
   }
 
   if (!cartaAtual) {
-    return <h2>Preparando carta...</h2>;
+    return <h2>Preparing card...</h2>;
   }
 
-
   return (
-    <div className="container-elixir" style={{ textAlign: "center", marginTop: "40px" }}>
-      <h1>Quiz Clash Royale</h1>
+    <div
+      className="container-elixir"
+      style={{ textAlign: "center", marginTop: "40px" }}
+    >
+      <h1 className="quiz-titulo-elixir">Clash Royale Quiz</h1>
 
-      <h2>Score: {score}</h2>
+      <div className="score-elixir">
+        <img className="icon-score" src={trofeu} alt="trophies" />
+        <div className="score-number-elixir">{score}</div>
+      </div>
 
-      {/* Feedback */}
       {feedback && (
         <h3
+          className="feedback"
           style={{
-            color: feedback.startsWith("Acertou") ? "green" : "red",
+            color: feedback.startsWith("Correct") ? "green" : "#ac0803",
             marginBottom: "15px",
           }}
         >
@@ -78,9 +87,9 @@ export default function Elixir({ cartas }) {
         </h3>
       )}
 
-      {/* Nome escondido */}
       <div style={{ marginBottom: "15px" }}>
         <h3
+          className="nome-card-elixir"
           style={{
             filter: mostrarNome ? "none" : "blur(8px)",
             cursor: "pointer",
@@ -89,32 +98,38 @@ export default function Elixir({ cartas }) {
         >
           {cartaAtual.name}
         </h3>
-        {!mostrarNome && <small>Clique no nome para revelar</small>}
+        {!mostrarNome && <small>Click the name to reveal</small>}
       </div>
 
-      <img
-        src={cartaAtual.iconUrls.medium}
-        alt={cartaAtual.name}
-        style={{ width: "200px" }}
-      />
+      <div className="card-elixir">
+        <img
+          src={cartaAtual.iconUrls.medium}
+          alt={cartaAtual.name}
+          className="carta-atual"
+        />
+      </div>
 
-      <h3>Qual o custo de elixir?</h3>
+      <h3 className="elixir">What is the elixir cost?</h3>
 
       <input
         className="input-elixir"
         type="number"
         value={resposta}
         onChange={(e) => setResposta(e.target.value)}
-        placeholder="Digite o custo"
+        placeholder="Enter the cost"
         disabled={!!feedback}
       />
 
       <br />
       <br />
 
-      <button  className="bnt-elixir" onClick={verificarResposta} disabled={!!feedback}>
-        Responder
-      </button>
+      <img
+        className="bnt-elixir"
+        src={enviar}
+        alt="submit button"
+        onClick={verificarResposta}
+        disabled={!!feedback}
+      />
     </div>
   );
 }

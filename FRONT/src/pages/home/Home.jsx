@@ -22,16 +22,16 @@ export default function Home() {
 
       <div className="home-lista">
         <img
-          className="modo-jogo1"
-          src={Elixir}
-          alt="modo de jogo elixir"
-          onClick={() => navigate("/elixir")}
-        />
-        <img
           className="modo-jogo2"
           src={Classico}
           alt="modo de jogo classico"
           onClick={() => navigate("/classico")}
+        />
+        <img
+          className="modo-jogo1"
+          src={Elixir}
+          alt="modo de jogo elixir"
+          onClick={() => navigate("/elixir")}
         />
       </div>
     </div>

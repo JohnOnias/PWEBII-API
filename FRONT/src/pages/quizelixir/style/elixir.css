@@ -1,3 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
 .container-elixir{
-    color: white;
+   
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 60vh;
+     color: #FFBE00;
+   
+
+
+}
+
+.bnt-elixir{
+    height: 60px;
+    margin: 0;
+    padding: 0;
+   
+}
+.bnt-elixir:hover{
+    cursor: pointer;
+    transform:  scale(1.06);
+   
+}
+
+.icon-score{
+    height: 45px;
+}
+
+.score-elixir{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    color: #FFBE00;
+}
+.score-number-elixir{
+    font-size: 29px;
+}
+.card-elixir{
+    width: 250px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #1f2330, #2d3243);
+    border-radius: 40px;
+    margin: 5px 0;
+    border: 4px solid #5a5f72;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+}
+.carta-atual{
+        height: 200px;
+        margin: 0px;
+        border: 0px;
+
+}
+.input-elixir{
+    background: #1a1d28;
+    border: 3px solid #4e5468;
+    border-radius: 50px;
+    padding: 15px 20px;
+    font-family: 'Bungee', cursive;
+    font-size: 14px;
+    color: #FFBE00;
+    outline: none;
+    transition: 0.2s;
+
+}
+.elixir{
+   color: #FFBE00;
+   background-color: #000000f1;
+   
+}
+.nome-card-elixir{
+    color: #FFBE00;
+
+}
+.quiz-titulo-elixir{
+ color: #FFBE00;
+}
+.feedback{
+
 }
