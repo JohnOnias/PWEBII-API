@@ -9,39 +9,72 @@ bom dia, alguns passos para rodar o projeto.
     - npm install vite@latest 
 
 
-- observaçoes -
-o projeto em si conta com React para o front e Electron para o back uma, essa união de tecnologias foi escolhida pois tinhamos um projeto com as mesmas em uma outra disciplina.
 
-- resumo do projeto -
+ # PWEBII-API
 
-Es um gerenciador de pedidos simples para pequenos comerciantes estilizado para parecer mobile utilizando sqlite3 para banco de dados, nesse gerenciador pode cadastrar produtos, ver metricas de vendas entre outros, a ideia inicial era ser um app android offline com o react native, porem os requisitos da disciplina é utilizar o react então por agora tera apenas a aparencia web de um app android.
+ Projeto de exemplo desenvolvido para a disciplina Programação Web II (IFCE Campus Cedro).
 
+ Equipe: John E. Onias e Eric Reullyson
 
-Disciplina: Programação WebII - IFCE Campus Cedro
-Semestre: 6
-Professor: José Olinda
-Equipe: John E. Onias e Eric Reullyson
+ Tecnologias principais
+ - Backend: Node.js, Express, Axios, dotenv, CORS
+ - Frontend: React (Vite), axios
 
+ Estrutura do repositório
+ - `BACK/` : código do servidor (Express)
+ - `FRONT/`: aplicativo React com Vite
 
+ Requisitos
+ - Node.js 18+ (o projeto foi testado com Node 24)
+ - npm
 
+ Instalação (visão geral)
+ 1. Clone o repositório:
+     ```bash
+     git clone <repo-url>
+     cd PWEBII-API
+     ```
+ 2. Backend:
+     ```bash
+     cd BACK
+     npm install
+     ```
+ 3. Frontend:
+     ```bash
+     cd ../FRONT
+     npm install
+     ```
 
+ Configurar variáveis de ambiente (backend)
+ - Crie um arquivo `.env` dentro de `BACK/` com a sua chave da API do Clash Royale (ou outras variáveis necessárias):
+     ```env
+     CLASH_API_KEY=sua_chave_aqui
+     ```
 
+ Executando localmente
+ - Rodar o backend (pasta `BACK`):
+     ```bash
+     node server.js
+     ```
+    Observação: se receber erro como "Cannot use import statement outside a module", veja `BACK/README.md` para soluções (ex.: configurar `type: "module"` em `package.json` ou usar sintaxe CommonJS).
 
+ - Rodar o frontend (pasta `FRONT`):
+     ```bash
+     cd FRONT
+     npm run dev
+     ```
 
-dependencias:
+ API exposta (exemplo)
+ - `GET /cards` (no servidor Express em `BACK/server.js`): retorna dados de cartas da API do Clash Royale (é preciso a variável `CLASH_API_KEY`).
 
-back = node, express, axios, dotenv cors
-instalando:
-     npm init -y 
-     npm install express axios dotenv cors
+ Observações de desenvolvimento
+ - O backend usa sintaxe ES Modules (`import ... from ...`). Para executar diretamente com `node` é necessário que o `package.json` do `BACK` contenha `"type": "module"` ou que os arquivos usem sintaxe CommonJS (`require`).
+ - Se preferir manter CommonJS, substitua os `import` por `const express = require('express')`, etc.
 
+ Contribuição
+ - Abra uma issue para discutir mudanças ou envie um pull request com descrições claras.
 
-front = react(vite), axios, react-dom-router
+ Licença
+ - Consulte os autores do projeto para decidir a licença apropriada.
 
-
-
-
- ----- rodando o projeto ------
-
-na pasta raiz back, rode: node server.js
-em outro terminal na pasta raiz front, rode: npm run dev
+ Arquivos adicionais com instruções específicas foram adicionados em `BACK/README.md` e `FRONT/README.md`.
