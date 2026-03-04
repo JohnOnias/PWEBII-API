@@ -1,3 +1,25 @@
+# FRONT (Aplicação React)
+
+Instruções específicas para o frontend construído com Vite + React.
+
+Instalação
+```bash
+cd FRONT
+npm install
+```
+
+Executando em desenvolvimento
+```bash
+npm run dev
+```
+
+Build para produção
+```bash
+npm run build
+```
+
+Observações
+- O frontend consome rotas do backend (por exemplo `/cards`). Certifique-se de que o servidor no `BACK/` esteja rodando e que a URL base esteja correta nas chamadas `axios` do frontend.
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
