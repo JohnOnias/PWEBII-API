@@ -9,11 +9,8 @@ import axios from "axios";
 
 export default function Home() {
 
-axios
-  .get("http://localhost:3000/cards")
-  .then((res) => console.log(res.data))
-  .catch((err) => console.error(err));
-   
+
+
 
 
 

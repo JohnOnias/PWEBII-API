@@ -3,11 +3,11 @@ import "./styles/style.css";
 
 
 
-export default function Classico(){
-
+export default function Classico({cartas}){
+  
   const [feedback, setFeedback] = useState("");
   const [formulario, setFormulario] = useState(""); 
-
+  
   const [currentCard, setCurrentCard] = useState({
     image: "",
     name: "",
