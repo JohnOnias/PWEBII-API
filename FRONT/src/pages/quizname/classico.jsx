@@ -5,9 +5,8 @@ import "./styles/style.css";
 export default function Classico({cartas}){
   
     const [cartaAtual, setCartaAtual] = useState(null);
-    const [score, setScore] = useState(0);
+    //const [score, setScore] = useState(0);
     const [resposta, setResposta] = useState("");
-    const [mostrarNome, setMostrarNome] = useState(false);
     const [feedback, setFeedback] = useState("");
     
 
@@ -21,14 +20,14 @@ export default function Classico({cartas}){
       verificarResposta();
     }
   
-    function pegarCartaAleatoria(lista, atual) {
-      if (!lista || lista.length === 0) return null;
+    function pegarCartaAleatoria(cartas, atual) {
+      if (!cartas || cartas.length === 0) return null;
   
       let novaCarta;
   
       do {
-        const index = Math.floor(Math.random() * lista.length);
-        novaCarta = lista[index];
+        const index = Math.floor(Math.random() * cartas.length);
+        novaCarta = cartas[index];
       } while (atual && novaCarta.id === atual.id);
   
       return novaCarta;
@@ -37,7 +36,6 @@ export default function Classico({cartas}){
     useEffect(() => {
       if (cartas && cartas.length > 0) {
         setCartaAtual(pegarCartaAleatoria(cartas, null));
-        setMostrarNome(false);
       }
     }, [cartas]);
   
@@ -51,10 +49,10 @@ export default function Classico({cartas}){
       console.log("Nome correto:", nomecorreto);
 
       if (acertou) {
-        setScore((prev) => prev + 1);
+        //setScore((prev) => prev + 1);
         setFeedback("Correct!");
       } else {
-        setScore((prev) => Math.max(prev - 1, 0));
+        //setScore((prev) => Math.max(prev - 1, 0));
         setFeedback(`You got it wrong! The correct name was: ${nomecorreto}`);
       }
   
@@ -63,7 +61,6 @@ export default function Classico({cartas}){
       setTimeout(() => {
         const novaCarta = pegarCartaAleatoria(cartas, cartaAtual);
         setCartaAtual(novaCarta);
-        setMostrarNome(false);
         setFeedback("");
       }, 1500);
     }
