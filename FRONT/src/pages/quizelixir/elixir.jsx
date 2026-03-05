@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./style/elixir.css";
 import trofeu from "../../../src/assets/trofeu.png";
-
 import enviar from "../../assets/respond.png";
 
 export default function Elixir({ cartas }) {
@@ -9,7 +8,7 @@ export default function Elixir({ cartas }) {
   const [score, setScore] = useState(0);
   const [resposta, setResposta] = useState("");
   const [mostrarNome, setMostrarNome] = useState(false);
-  const [feedback, setFeedback] = useState("");
+  const [feedback, setFeedback] = useState(null); 
 
   function pegarCartaAleatoria(lista, atual) {
     if (!lista || lista.length === 0) return null;
@@ -39,20 +38,26 @@ export default function Elixir({ cartas }) {
 
     if (acertou) {
       setScore((prev) => prev + 1);
-      setFeedback("Correct!");
+      setFeedback({
+        tipo: "acerto",
+        mensagem: "You’re right!",
+      });
     } else {
       setScore((prev) => Math.max(prev - 1, 0));
-      setFeedback(`Too bad, you missed it! The cost was ${custoCorreto}`);
+      setFeedback({
+        tipo: "erro",
+        mensagem: `That’s a shame! The cost was ${custoCorreto}`,
+      });
     }
 
     setResposta("");
+  }
 
-    setTimeout(() => {
-      const novaCarta = pegarCartaAleatoria(cartas, cartaAtual);
-      setCartaAtual(novaCarta);
-      setMostrarNome(false);
-      setFeedback("");
-    }, 1500);
+  function fecharModal() {
+    const novaCarta = pegarCartaAleatoria(cartas, cartaAtual);
+    setCartaAtual(novaCarta);
+    setMostrarNome(false);
+    setFeedback(null);
   }
 
   if (!cartas || cartas.length === 0) {
@@ -64,30 +69,15 @@ export default function Elixir({ cartas }) {
   }
 
   return (
-    <div
-      className="container-elixir"
-      style={{ textAlign: "center", marginTop: "40px" }}
-    >
-      <h1 className="quiz-titulo-elixir">Clash Royale Quiz</h1>
+    
+    <div className="quiz-container">
 
-      <div className="score-elixir">
+    {/*  <div className="score-elixir">
         <img className="icon-score" src={trofeu} alt="trophies" />
         <div className="score-number-elixir">{score}</div>
       </div>
 
-      {feedback && (
-        <h3
-          className="feedback"
-          style={{
-            color: feedback.startsWith("Correct") ? "green" : "#ac0803",
-            marginBottom: "15px",
-          }}
-        >
-          {feedback}
-        </h3>
-      )}
-
-      <div style={{ marginBottom: "15px" }}>
+     <div style={{ marginBottom: "15px" }}>
         <h3
           className="nome-card-elixir"
           style={{
@@ -99,37 +89,50 @@ export default function Elixir({ cartas }) {
           {cartaAtual.name}
         </h3>
         {!mostrarNome && <small>Click the name to reveal</small>}
-      </div>
+      </div>*/ }
 
       <div className="card-elixir">
+        <div className="quiz-header">
+          <h2 className="quiz-titulo-elixir">What is the elixir cost?</h2>
+        </div>
+
+        <div className="card-display-elixir">
+          <img
+            src={cartaAtual.iconUrls.medium}
+            alt={cartaAtual.name}
+            className="carta-atual"
+          />
+        </div>
+
+        <div className="input-area">
+          <input
+            className="input-elixir"
+            type="number"
+            value={resposta}
+            onChange={(e) => setResposta(e.target.value)}
+            placeholder="Enter the cost"
+            disabled={!!feedback}
+          />
+        </div>
+
         <img
-          src={cartaAtual.iconUrls.medium}
-          alt={cartaAtual.name}
-          className="carta-atual"
+          className="bnt-elixir"
+          src={enviar}
+          alt="submit button"
+          onClick={verificarResposta}
         />
       </div>
 
-      <h3 className="elixir">What is the elixir cost?</h3>
 
-      <input
-        className="input-elixir"
-        type="number"
-        value={resposta}
-        onChange={(e) => setResposta(e.target.value)}
-        placeholder="Enter the cost"
-        disabled={!!feedback}
-      />
-
-      <br />
-      <br />
-
-      <img
-        className="bnt-elixir"
-        src={enviar}
-        alt="submit button"
-        onClick={verificarResposta}
-        disabled={!!feedback}
-      />
+      {/* moda de feedback*/}
+      {feedback && (
+        <div className="modal-overlay">
+          <div className={`modal-feedback ${feedback.tipo}`}>
+            <h2>{feedback.mensagem}</h2>
+            <button onClick={fecharModal}>Next</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

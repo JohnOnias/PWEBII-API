@@ -1,93 +1,172 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    border: 0;
+    box-sizing: border-box;
 }
-.container-elixir{
-   
-    margin: 0;
-    padding: 0;
-    border: 0;
+
+/* CONTAINER */
+.container-elixir {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     max-height: 60vh;
-     color: #FFBE00;
-   
-
-
+    color: #FFBE00;
 }
 
-.bnt-elixir{
-    height: 60px;
-    margin: 0;
-    padding: 0;
-   
-}
-.bnt-elixir:hover{
-    cursor: pointer;
-    transform:  scale(1.06);
-   
+/* SCORE */
+.score-elixir {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px;
 }
 
-.icon-score{
+.icon-score {
     height: 45px;
 }
 
-.score-elixir{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    color: #FFBE00;
-}
-.score-number-elixir{
+.score-number-elixir {
     font-size: 29px;
+    font-weight: bold;
 }
-.card-elixir{
-    width: 250px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(145deg, #1f2330, #2d3243);
-    border-radius: 40px;
-    margin: 5px 0;
-    border: 4px solid #5a5f72;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-}
-.carta-atual{
-        height: 200px;
-        margin: 0px;
-        border: 0px;
 
+/* CARD */
+.card-elixir {
+    background: #166df0;
+    border-radius: 30px;
+    padding: 25px 25px 35px;
+    box-shadow: 0 20px 30px rgba(0,0,0,0.5),
+                inset 0 2px 4px rgba(255,255,255,0.1);
+    border: 2px solid #4a4f62;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
 }
-.input-elixir{
+
+/* CARD IMAGE */
+.carta-atual {
+    width: 150px;
+    height: 235px;
+    margin: 0px;
+}
+
+/* INPUT */
+.input-elixir {
     background: #1a1d28;
     border: 3px solid #4e5468;
     border-radius: 50px;
-    padding: 15px 20px;
+    padding: 12px 20px;
     font-family: 'Bungee', cursive;
     font-size: 14px;
     color: #FFBE00;
     outline: none;
+    text-align: center;
     transition: 0.2s;
+    margin: 0px;
+}
+
+.input-elixir:focus {
+    border-color: #FFBE00;
+}
+
+/* BUTTON */
+.bnt-elixir {
+    height: 60px;
+    transition: 0.2s;
+    margin: 0px;
+    padding: 0px;
 
 }
-.elixir{
-   color: #FFBE00;
-   background-color: #000000f1;
-   
+
+.bnt-elixir:hover {
+    cursor: pointer;
+    transform: scale(1.06);
 }
-.nome-card-elixir{
+
+/* TEXTS */
+.nome-card-elixir {
     color: #FFBE00;
+}
+
+.quiz-titulo-elixir {
+    color: #FFBE00;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal-feedback {
+    background: #1e2433;
+    padding: 30px 40px;
+    border-radius: 20px;
+    text-align: center;
+    min-width: 280px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.modal-feedback.acerto {
+    border: 3px solid #00c853;
+}
+
+.modal-feedback.erro {
+    border: 3px solid #d50000;
+}
+
+.modal-feedback h2 {
+    color: #FFBE00;
+    margin-bottom: 20px;
+}
+
+.modal-feedback button {
+    background: #166df0;
+    color: #FFBE00;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.card-display-elixir{
+    background: linear-gradient(145deg, #0080ff, #9c8b8b);
+    border-radius: 30px;
+    padding: 2px 40px;
+    border: 4px solid #5a5f72;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
-.quiz-titulo-elixir{
- color: #FFBE00;
-}
-.feedback{
 
+.modal-feedback button:hover {
+    transform: scale(1.05);
+    background: #0f5cd6;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

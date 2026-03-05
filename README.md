@@ -1,14 +1,3 @@
-"# PWEBII-API" 
-bom dia, alguns passos para rodar o projeto.
-
-
-01 - git clone (clona o repositorio para sua maquina)
-02 - entre na raiz do projeto e depois em front e instale o electron
-    - npm install electron
-03 - volte para raiz do projeto e instale o react
-    - npm install vite@latest 
-
-
 
  # PWEBII-API
 
