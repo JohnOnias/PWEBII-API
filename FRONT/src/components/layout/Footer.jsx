@@ -9,12 +9,6 @@ export default function Footer() {
       <p>Criado por John e Eric</p>
 
 
-      <img
-        src="https://supercell.com/images/1577901844/supercell_logo.png"
-        alt="Supercell"
-        className="sc-logo"
-      />
-
     </footer>
   );
 }
